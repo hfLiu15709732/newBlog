@@ -1,0 +1,122 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+    --ifm-color-primary: #2e8555;
+    --ifm-color-primary-dark: #29784c;
+    --ifm-color-primary-darker: #277148;
+    --ifm-color-primary-darkest: #205d3b;
+    --ifm-color-primary-light: #33925d;
+    --ifm-color-primary-lighter: #359962;
+    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* For readability concerns, you should choose a lighter palette in dark mode. */
+  [data-theme='dark'] {
+    --ifm-color-primary: #25c2a0;
+    --ifm-color-primary-dark: #21af90;
+    --ifm-color-primary-darker: #1fa588;
+    --ifm-color-primary-darkest: #1a8870;
+    --ifm-color-primary-light: #29d5b0;
+    --ifm-color-primary-lighter: #32d8b4;
+    --ifm-color-primary-lightest: #4fddbf;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  }
+
+
+
+    @primaryColor: rgba(50,149,251, 1);
+    @secondColor: rgba(98,195,245, 1);
+    @strongColor:rgba(0,179,161, 1);
+    @WarningMainColor:#ff9800;
+    @WarningBaseColor:rgba(255, 185, 82, 0.1);
+
+    @successColor:rgba(59, 179, 70, 1);
+    @WeakSuccessColor:rgba(164, 224, 167, 1);
+
+    @CommonRadius:6px;
+  
+  
+    .theme-doc-markdown {
+        h1,h2,h3,h4,h5,h6{
+            color: @primaryColor !important;
+        }
+        strong{
+            color: @strongColor;
+        }
+        ul,ol{
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+            li::marker{
+                color: @strongColor !important;;
+            }
+        }
+        blockquote{
+            border-left: 5px solid @WarningMainColor !important;
+            background-color:@WarningBaseColor !important;
+            border-radius: @CommonRadius;
+        }
+    
+        .task-list-item p{
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+        }
+        table{
+            border-radius: @CommonRadius !important;
+            tr:hover{
+                background-color: @WeakSuccessColor !important;
+                color: #000;
+                font-weight: 600;
+            }
+        }
+        .clean-btn{
+            opacity: 1 !important;
+        }
+    
+        .prism-code{
+            .keyword{
+                color: #c792ea !important;
+            }
+            .string{
+                color: #c3e88d !important;
+            }
+            .number, .boolean{
+                color: #f78c6c !important;
+            }
+            .comment{
+                color: @WarningMainColor !important;
+            }
+        }
+        img{
+            border-bottom: 8px !important;
+            border: 4px solid @WeakSuccessColor !important;
+        }
+        input[type="checkbox"]:not(:disabled) {
+            /* 取消禁用状态 */
+            pointer-events: auto !important;
+            opacity: 1 !important;
+          }
+    
+    }
+    .table-of-contents{
+        .table-of-contents__link{
+            padding-left: 5px !important;
+        }
+        .table-of-contents__link--active{
+            display: block !important;
+            border-left: 3px solid #25c2a0 !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+        }
+    }
+    // .menu__list{
+    //     .menu__link{
+    //         color: pink !important;
+    //     }
+    // }

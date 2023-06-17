@@ -1,0 +1,99 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  color: #3295fb !important;
+}
+.theme-doc-markdown strong {
+  color: #00b3a1;
+}
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+.theme-doc-markdown ul li::marker,
+.theme-doc-markdown ol li::marker {
+  color: #00b3a1 !important;
+}
+.theme-doc-markdown blockquote {
+  border-left: 5px solid #ff9800 !important;
+  background-color: rgba(255, 185, 82, 0.1) !important;
+  border-radius: 6px;
+}
+.theme-doc-markdown .task-list-item p {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+.theme-doc-markdown table {
+  border-radius: 6px !important;
+}
+.theme-doc-markdown table tr:hover {
+  background-color: #a4e0a7 !important;
+  color: #000;
+  font-weight: 600;
+}
+.theme-doc-markdown .clean-btn {
+  opacity: 1 !important;
+}
+.theme-doc-markdown .prism-code .keyword {
+  color: #c792ea !important;
+}
+.theme-doc-markdown .prism-code .string {
+  color: #c3e88d !important;
+}
+.theme-doc-markdown .prism-code .number,
+.theme-doc-markdown .prism-code .boolean {
+  color: #f78c6c !important;
+}
+.theme-doc-markdown .prism-code .comment {
+  color: #ff9800 !important;
+}
+.theme-doc-markdown img {
+  border-bottom: 8px !important;
+  border: 4px solid #a4e0a7 !important;
+}
+.theme-doc-markdown input[type="checkbox"]:not(:disabled) {
+  /* 取消禁用状态 */
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+.table-of-contents .table-of-contents__link {
+  padding-left: 5px !important;
+}
+.table-of-contents .table-of-contents__link--active {
+  display: block !important;
+  border-left: 3px solid #25c2a0 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}

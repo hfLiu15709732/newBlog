@@ -1,0 +1,61 @@
+---
+slug: intro
+title: 前端模块介绍
+# authors:
+#   name: Gao Wei
+#   title: Docusaurus Core Team
+#   url: https://github.com/wgao19
+#   image_url: https://github.com/wgao19.png
+tags: [简介, 前端系统学习,大前端深入]
+---
+# 🌟欢迎来到峰哥博客!🌟
+
+## ✨首先
+
+> 这是一个致力与计算机开发技术学习和分享的博客。其中包含了前端系统性学习汇总/计算机学科课程汇总/技术项目分享等等。
+>
+> 
+>
+> 在前端系统性学习板块，你将找到关于H5C3基础、JavaScript基础、JavaScript进阶、Node.js基础、前端工程化准备（数据库、Less、Git等）、React框架，以及大前端深入（Next.js、Koa、Egg.js/小程序/Flutter）等多个技术领域的学习资源。
+
+## H5C3基础 🎨
+
+- HTML5和CSS3的基础知识和特性。
+- 构建网页布局、样式和交互效果。
+
+## JavaScript基础 💡
+
+- JavaScript的核心语法和基本概念。
+- 数据类型、函数、条件语句、循环等基础知识。
+- DOM操作和事件处理等前端开发常用技巧。
+
+## JavaScript进阶 🚀
+
+- 高级JavaScript概念和技术。
+- 异步编程、闭包、原型链等进阶主题。
+- ES6+的新特性和语法糖。
+
+## Node.js基础 ⚙️
+
+- 了解Node.js的基本概念和原理。
+- 使用Node.js构建服务器端应用程序。
+
+## 前端工程化准备 🔧
+
+- 数据库的基本概念和使用。
+- 使用Less进行CSS预处理。
+- 版本控制工具Git的使用等。
+
+## React框架 ⚛️
+
+- 学习React框架的核心概念和基本使用。
+- 构建交互式的单页面应用程序。
+
+## 大前端深入 🌐
+
+- 探索Next.js、Koa、Egg.js等后端技术。
+- 开发小程序和Flutter移动应用。
+
+让我们一起进入前端开发的精彩世界吧！如果你有任何问题或者需要特定的内容，请随时联系我。
+
+✉️ [邮箱地址] | 🔗 [博客链接]
