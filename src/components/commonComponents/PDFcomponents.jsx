@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PDFPreview = ({ pdfUrl, width, height }) => {
+const PDFPreview = ({ pdfUrl}) => {
   const iframeStyle = {
     width: `100%`,
     height: `65vh`,
