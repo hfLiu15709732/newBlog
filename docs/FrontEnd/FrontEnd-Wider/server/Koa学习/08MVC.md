@@ -3,6 +3,9 @@ slug: mvc
 title: 8. 简易MVC框架构建
 tags: [简介, 课程分享,期末速成]
 order: 1
+# 显示 h2 到 h5 标题
+toc_min_heading_level: 2
+toc_max_heading_level: 5
 ---
 # 构建基本的MVC项目
 
