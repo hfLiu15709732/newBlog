@@ -57,11 +57,12 @@
 }
 .theme-doc-markdown table {
   border-radius: 6px !important;
+  font-weight: 600;
 }
 .theme-doc-markdown table tr:hover {
   background-color: #a4e0a7 !important;
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
 }
 .theme-doc-markdown .clean-btn {
   opacity: 1 !important;
@@ -94,6 +95,4 @@
 .table-of-contents .table-of-contents__link--active {
   display: block !important;
   border-left: 3px solid #25c2a0 !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
 }

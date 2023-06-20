@@ -4,17 +4,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const PDFPreview = ({ type,position,data,lastTime}) => {
+const Notification = ({type,position,data,lastTime}) => {
 
     useEffect(()=>{
         if(lastTime=="slow"){
-            lastTime=3
+            lastTime=3000
         }
         else if(lastTime=="mid"){
-            lastTime=5
+            lastTime=5000
         }
         else if(lastTime=='long'){
-            lastTime=7
+            lastTime=7000
         }
         toast(data,{
             type:type,
@@ -30,4 +30,4 @@ const PDFPreview = ({ type,position,data,lastTime}) => {
   );
 };
 
-export default PDFPreview;
+export default Notification;
