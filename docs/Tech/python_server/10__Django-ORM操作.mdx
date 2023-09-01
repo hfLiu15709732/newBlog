@@ -1,0 +1,450 @@
+---
+slug: Python_django_orm
+title: 10. Django的ORM机制
+tags: [Python, "Django","ORM"]
+---
+
+
+
+
+# django框架--ORM操作
+
+
+:::tip 相关依赖
+
+pip install mysqlclient
+
+:::
+
+
+
+
+
+## 一.架构搭建
+
+
+
+### 1.1 配置连接信息
+
+```python
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME':'day70',
+    'USER': 'eric',
+    'PASSWORD': '123123',
+    'HOST': '192.168.182.128',
+    'PORT': '3306',
+    }
+}
+```
+
+
+
+
+
+### 1.2 注册APP
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'app01.apps.App01Config',
+   
+]
+```
+
+
+
+
+
+### 1.3 创建模型 (model)
+
+```python
+from django.db import models
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=32)
+    password = models.CharField(max_length=50)
+    age = models.IntegerField()
+
+    # def __str__(self):
+    #     return self.name
+
+
+class dept(models.Model):
+    title = models.CharField(max_length=32)
+
+
+    # 一个表对应一个类
+
+```
+
+
+
+
+
+### 1.4 模型迁移（自动同步数据库）
+
+
+
+
+
+```python
+python manage.py makemigrations  #根据app下的migrations目录中的记录，检测当前model层代码是否发生变化？
+
+python manage.py migrate         #把orm代码转换成sql语句去数据库执行
+```
+
+
+
+## 二.基础操作（单表）
+
+
+
+### 2.1 增加数据
+
+
+
+```python
+def testInsert(request):
+    dept.objects.create(title="销售部")
+    dept.objects.create(title="生产部")
+    dept.objects.create(title="产品部")
+    return HttpResponse("添加成功")
+
+
+
+def testInsert2(request):
+     obj = models.Tb1(idx=88, title='生产部')
+     obj.save()
+     return HttpResponse("添加成功")
+```
+
+
+
+
+
+### 2.2 删除数据
+
+
+
+
+
+```python
+def testDelete(request):
+    dept.objects.filter(id=2).delete()   #id约束删除
+    dept.objects.all().delete()  # 全部数据删除
+    return HttpResponse("删除成功")
+
+```
+
+
+
+### 2.3 修改数据
+
+
+
+
+
+```python
+def testUpdate(request):
+    dept.objects.filter(id=4).update(title="行政部")   #id约束修改
+    dept.objects.all().update(title="市场部") # 全部数据修改
+    return HttpResponse("修改成功")
+
+
+
+def testUpdate2(request):
+     obj = models.dept.objects.get(id=4)
+     obj.title = '行政部'
+     obj.save()    
+
+```
+
+
+
+
+
+### 2.4 查询数据
+
+
+
+```python
+def getBase(request):
+     models.dept.objects.get(id=11)           # 获取单条数据，不存在则报错（不建议）
+     models.dept.objects.all()                # 获取全部数据
+     models.dept.objects.filter(name='seven') # 获取指定条件的数据
+```
+
+
+
+
+
+### 2.5 JSON格式问题
+
+
+
+
+
+
+
+```python
+def querysetToJson(queryset):
+    listData=list(queryset.values())
+    jsonData=json.dumps(listData)
+    return jsonData
+
+
+def JsonByteToList(bytes):
+
+    listData=json.loads(bytes)
+    return listData['data']
+
+
+# 控制器中应用tolist函数
+listData=JsonByteToList(request.body)
+for obj in  listData:
+    print(obj)
+
+
+
+
+ #也可以向下面这样的第二类方案
+    
+    dept_list=[]
+    for obj in  data_set:
+        dept_list.append({
+            "id":obj.id,
+            "title":obj.title
+        })
+    return JsonResponse(dept_list,safe=False)
+    
+```
+
+
+
+
+
+
+
+## 三.多表实例
+
+
+
+### 3.1 设置 外键（一对多）/ 一对一 / 多对多的关系问题
+
+
+
+```python
+class Book(models.Model):
+    title = models.CharField(max_length=32)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    pub_date = models.DateField()
+    publish = models.ForeignKey("Publish", on_delete=models.CASCADE) #设置一对多关系(外键)
+    authors = models.ManyToManyField("Author")    #设置多对多关系(MANY to MANY Field)
+
+
+class Publish(models.Model):
+    name = models.CharField(max_length=32)
+    city = models.CharField(max_length=64)
+    email = models.EmailField()
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=32)
+    age = models.SmallIntegerField()
+    au_detail = models.OneToOneField("AuthorDetail", on_delete=models.CASCADE)
+    #设置一对一关系(ONE to ONE Field)
+
+
+class AuthorDetail(models.Model):
+    gender_choices = (
+        (0, "女"),
+        (1, "男"),
+        (2, "保密"),
+    )
+    gender = models.SmallIntegerField(choices=gender_choices)
+    tel = models.CharField(max_length=32)
+    addr = models.CharField(max_length=64)
+    birthday = models.DateField()
+    
+    
+#  一对多：models.ForeignKey(其他表) 
+#  多对多：models.ManyToManyField(其他表)
+#  一对一：models.OneToOneField(其他表)
+```
+
+
+
+
+
+
+
+### 3.2 进行基本查询 
+
+
+:::danger 注意
+基本信息创建好之后 ORM会自动分配想的ID主键及其各个表之间的主外键与连接关系 
+
+所以开发者直接根据需求写就行了(仅仅去操作Model来间接操作数据库)
+
+:::
+
+
+
+
+**四个典型例子：**
+
+
+
+1. **一对一关系查询：**
+
+   
+
+   ```python
+   # 查询作者名为"John"的作者详情
+   author_detail = AuthorDetail.objects.get(author__name="John")
+   print(author_detail.gender, author_detail.tel)
+   ```
+
+   
+
+2. **一对多关系查询：**
+
+   
+
+   ```python
+   # 查询出版社名为"ABC出版社"的所有图书
+   books = Book.objects.filter(publish__name="ABC出版社")
+   for book in books:
+       print(book.title, book.price)
+   ```
+
+   
+
+3. **多对多关系查询：**
+
+   
+
+   ```python
+   # 查询作者名为"John"的所有图书
+   books = Book.objects.filter(authors__name="John")
+   for book in books:
+       print(book.title, book.price)
+   ```
+
+   
+
+4. **普通查询：**
+
+   
+
+   ```python
+   # 查询价格大于100的所有图书
+   books = Book.objects.filter(price__gt=100)
+   for book in books:
+       print(book.title, book.price)
+   ```
+
+   
+
+
+
+
+
+### 3.3 分类查询与聚合查询
+
+
+
+####  分类查询：
+
+1. **查询每个出版社出版的图书数量：**
+
+   
+
+   ```python
+   from django.db.models import Count
+   
+   publishers = Publish.objects.annotate(num_books=Count('book'))
+   for publisher in publishers:
+       print(publisher.name, publisher.num_books)
+   ```
+
+   
+
+2. **查询每个作者写的图书数量：**
+
+   ```python
+   authors = Author.objects.annotate(num_books=Count('book'))
+   for author in authors:
+       print(author.name, author.num_books)
+   ```
+
+   
+
+3. **查询每个作者的平均年龄：**
+
+   
+
+   ```python
+   from django.db.models import Avg
+   
+   authors = Author.objects.annotate(avg_age=Avg('age'))
+   for author in authors:
+       print(author.name, author.avg_age)
+   ```
+
+   
+
+#### 聚合查询：
+
+1. **计算图书的平均价格：**
+
+   ```python
+   from django.db.models import Avg
+   
+   average_price = Book.objects.aggregate(avg_price=Avg('price'))
+   print(average_price['avg_price'])
+   ```
+
+   
+
+2. **计算图书的总价格：**
+
+   ```python
+   from django.db.models import Sum
+   
+   total_price = Book.objects.aggregate(sum_price=Sum('price'))
+   print(total_price['sum_price'])
+   ```
+
+   
+
+3. **计算每个作者的图书总价格：**
+
+   
+
+   ```python
+   from django.db.models import Sum
+   
+   authors = Author.objects.annotate(total_price=Sum('book__price'))
+   for author in authors:
+       print(author.name, author.total_price)
+   ```
+
+
+
+
+
+## 四. 文档地址
+
+[Django框架--ORM操作](https://rvni3p1fr2r.feishu.cn/wiki/S9pDw5OzYiHcwpkP5wncJsK3nvg?from=from_copylink)
+
+   
+
