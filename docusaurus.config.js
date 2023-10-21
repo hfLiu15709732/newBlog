@@ -171,6 +171,9 @@ const config = {
 					"cpp.js",
 					"bash.js",
 					"sql.js",
+					"go.js",
+					"git.js",
+					"go-module.js",
 				],
 			},
 			colorMode: {
