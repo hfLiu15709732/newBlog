@@ -149,7 +149,9 @@ systemctl enable ntpd
 1. 在 VMware Workstation（或 Fusion）中配置 IP 地址网关和网段（IP 地址的范围）（网关 10.0.0.254，子网 10.0.0.0）
 2. 在 Linux 系统中手动修改配置文件，固定 IP（3.4 部是怎样具体实现 2）
 3. 使用 vim 编辑/etc/sysconfig/network-scripts/ifcfg-ens33 文件，填入如下内容：
-   TODO 图片待上传云存储
+
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/%E5%9B%BA%E5%AE%9Aip1.png?q-sign-algorithm=sha1&q-ak=AKIDXlahdVTNQohAMR2C_-0iDj4f56ss1XjTIIIYsyBRxOz6yhha6PfuPzsIngDf_W5T&q-sign-time=1698030001;1698033601&q-key-time=1698030001;1698033601&q-header-list=host&q-url-param-list=ci-process&q-signature=8e81e603733e9aba74cbca10abdd35f70718f6e9&x-cos-security-token=BPYeRbTdgfNUS8UTwr25LnTvDGeC1IGa95344dd4d5f122a1e616cd6be378a90bj-spmTya4ly0RYkWbvVix4db9TIO4-uVJRhkz4wXFK1efpCRibafPSlPueB4wsumpUgOx7vuOV4Bf-lQjMDudkzV5msuXw37jXuTZvNFCk4aMn1ltVBG2PTykp0EQ-sYBOdtD1IbI26ThuRPOVCih_rvjrDqrG9mieNUs_pz4DJALmQp6ETcc_qNTEDuOnyhscGQrs0lIKsTgt8oD0IWTQ&ci-process=originImage)
+
 4. 执行：重启网卡，执行 ifconfig 即可看到 ip 地址固定为
 
 ```shell
@@ -336,7 +338,13 @@ ctrl+c
 
 ### 8.2 复杂的 top 选项与交互式 top 选项
 
-//TODO 两张图关于 top 选项的
+**TOP 的选项**
+
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/top%E9%80%89%E9%A1%B91.jpg?q-sign-algorithm=sha1&q-ak=AKIDKJDUlXoS-_9ZU_dt_D33Dpp_mKOtPmvumhvOj3KRnARU0BjDr5EdsAxpfeRD_Q6q&q-sign-time=1698030031;1698033631&q-key-time=1698030031;1698033631&q-header-list=host&q-url-param-list=ci-process&q-signature=141ff7cc522bd42eb93f412319a8be70626ced13&x-cos-security-token=BPYeRbTdgfNUS8UTwr25LnTvDGeC1IGaa262ab81f0f4be4f3c8d468748381014j-spmTya4ly0RYkWbvVix0kchAx0F-34OyBfo3VzHKA9g9mqJ1bwcc8cwyZlhhRLDURqeiihZcAyNjETWqveFu08xHCMdsDvzHIgWMx0PpB4wB0c1-8tZjMArnXWuoJmeG7Qyih59URY4x4NIaO8ObkWh4qiaDsHw3FELWIjA3ET6T1IcHWUpSp_1VidwCvyldpBrKIA0WDl-Y4OzfKTLg&ci-process=originImage)
+
+**TOP 的交互式选项**
+
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/top%E9%80%89%E9%A1%B92.jpg?q-sign-algorithm=sha1&q-ak=AKIDdsv6YxifMwirpibFSPYWZM9vpkNcmTgSLDGhjc-L2EO3Fp61cjXKqOartRrpGDyX&q-sign-time=1698030040;1698033640&q-key-time=1698030040;1698033640&q-header-list=host&q-url-param-list=ci-process&q-signature=a56824c5f7d45c2e6071d15dac6bb943c1999145&x-cos-security-token=kcfjdl4Ru4loEnOkgCXY2vxvQm6E4j4af4b60164b1c0120b72b20c3be257ca09EwCYY89fcFoChRS6BDDp-KhN8tVM3kDv18eZLDCukHq38aA8XoPoTEnU4v2ODUtHqISwlShekEh_2NU8_Br_apFjSXeNpSbOAm94Nn5Bel8GK_x0jK7xst3aEFQReCkytmmnqJBiPyXThmkIguDkcr-N4kQgOR1WoOJ5lWa8wTBrvWWnGmcD0GfkgSD14Xi_uDA0nqXxVpjVAyWYs-mDyg&ci-process=originImage)
 
 ### 8.3 磁盘信息监控命令
 

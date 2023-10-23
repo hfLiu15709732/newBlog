@@ -13,8 +13,7 @@ tags: [Linux, base, 命令]
 :::info
 Linux 系统由 Linux 系统内核、系统级应用程序 两部分组成
 :::
-
-TODO 图片待上传
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/linux%E5%86%85%E6%A0%B81.png?q-sign-algorithm=sha1&q-ak=AKID4CR-_k8rHP8S6Iwn2zOAu8-LOGkImLShtdHi1_PrjXrmYf1mlxrj6a1IO0UdHOQd&q-sign-time=1698029672;1698033272&q-key-time=1698029672;1698033272&q-header-list=host&q-url-param-list=ci-process&q-signature=8ef057d7ed13e963b7a53fd2a0f67d71aaba77fe&x-cos-security-token=BPYeRbTdgfNUS8UTwr25LnTvDGeC1IGa3c4efc6d9e5bc62e44b2bbe516b044c0j-spmTya4ly0RYkWbvVix7U1mf4ohnV-PWgcZ-O6Y_PU_nswRmT2QedD6Zb1oJwO_IA34nwnn-w55pf2CFxO3-yTRF9u6Tay4m-fvsCT7DkhMmn_MxCm6Lro1HfdslZ_tHDAQ8NnjSdzpcnnP-pOa5ceBsRlrS9TI8YvTQCx8HEZYb23pYTt_fF1RQYaKx3GK0DTR9o4_5QY_C99u4JsGQ&ci-process=originImage)
 
 - 内核提供系统最核心的功能，如：调度 CPU、调度内存、调度文件系
   统、调度网络通讯、调度 IO 等
@@ -32,7 +31,9 @@ TODO 图片待上传
 
 而 Linux 发行版就是提供了内核+系统级程序的完整封装
 :::
-TODO 图片待上传
+
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/linux%E5%8F%91%E8%A1%8C%E7%89%881.jpg?q-sign-algorithm=sha1&q-ak=AKIDq1d-7A5tryWnBFpKMZ_YyF3RnZJuHQq18iy0ezGWrRxW_q5-DPEugZmQxJVUEl4g&q-sign-time=1698029743;1698033343&q-key-time=1698029743;1698033343&q-header-list=host&q-url-param-list=ci-process&q-signature=d4e95e45ae915e9c57f542a1de22f77a63d0f145&x-cos-security-token=BPYeRbTdgfNUS8UTwr25LnTvDGeC1IGa35848cba955be89f0cb2d84b4d51dec1j-spmTya4ly0RYkWbvVix4eutGAJK3D0x0iubAUA53biLs3e4N8HC22ODKZN9p1DYnqbiQqr-leqoQN8YfDON0K_pgFAdp3ffBUa1Jv4EB7aIW0b5akorIoeWo8I_x2PqvQ2gz58vStYVrZGR1_cVKDu7xBsZzB7Juu190c6Td1xwFx7FBBStFvamSkKMp0g_C2JV6sAaZ7rqU2xbr_dyw&ci-process=originImage)
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/linux%E5%8F%91%E8%A1%8C%E7%89%882.jpg?q-sign-algorithm=sha1&q-ak=AKIDRtGB5kqUsriYC-Z0VKllGiqecmydcepy3ElSClMyXglpqDusTNNcxruF_xFiTxhG&q-sign-time=1698029752;1698033352&q-key-time=1698029752;1698033352&q-header-list=host&q-url-param-list=ci-process&q-signature=37bf02c00877100bd6f14393dc4974c91a799ff4&x-cos-security-token=kcfjdl4Ru4loEnOkgCXY2vxvQm6E4j4adc1eea2501bc0818428fd7772a259892EwCYY89fcFoChRS6BDDp-FN67D87W5jYZX4o22_TQ9xZLcuATbJ54OjsXgSJfL7qib2dqVNZpT531p9yatQdIaXEZbEoVuNxVQk4WIgt4lJRqtYI6FlP2o585wvqJsBoaZ7m3GlxNBFtISzQ9-ft-AfImNHdEGnr48LUAM-6VjMjyzkBHoX_AtCWtEcn8UhruRfR5ulPUMEkgqaKsK3Nyw&ci-process=originImage)
 
 ### 1.3 FinalShell 与虚拟机快照
 
@@ -40,7 +41,7 @@ TODO 图片待上传
 FinalShell 是通过 Linux 的 IP 地址并实现远程连接的程序
 :::
 
-TODO 图片待上传
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%BF%AB%E7%85%A7.jpg?q-sign-algorithm=sha1&q-ak=AKID9lHEmk4anPXdcaTO60HDMpIJpJ5TuPBNxxV2vf_wKp12iDoOp1km81WZWl5ftWBe&q-sign-time=1698029806;1698033406&q-key-time=1698029806;1698033406&q-header-list=host&q-url-param-list=ci-process&q-signature=94c94d0dbe1f0ed6c7fec0406333f74d755412c0&x-cos-security-token=kcfjdl4Ru4loEnOkgCXY2vxvQm6E4j4a3f265728c7b0679ea10b07cc5dd5db62EwCYY89fcFoChRS6BDDp-Gw9hJEBjoWaE462s8EOVZo-4KE119sUncVzcDrFhlK2KuoUBvRCMY2jw_w2YaTQa_g2ymVHh4T5-c8p5nWQZMGSXmq_7XzBiH7TXoOuR8dnoNtrJ2i-IUxA_p-cUOQDd4nStt2WSoxvOBc4xxWPqx6Z4mTItsgi5xskXL2kcPoj&ci-process=originImage)
 
 **步骤实现：**
 
@@ -326,7 +327,7 @@ tail -num Linux路径
 
 ### 8.1 工作原理图
 
-TODO 图片待上传
+![](https://blog-use-1316646528.cos.ap-nanjing.myqcloud.com/Linux%E5%AD%A6%E4%B9%A0/vim%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%9B%BE1.jpg?q-sign-algorithm=sha1&q-ak=AKIDj4RrIGZaXzJ0qn-3K66cBH-FJtQNW_kWUzPFU3tJ0JX34R-GPTxVWo-QEOWDSmUl&q-sign-time=1698029960;1698033560&q-key-time=1698029960;1698033560&q-header-list=host&q-url-param-list=ci-process&q-signature=279ea6694b1f0081ec8828d2012af17c53b24c27&x-cos-security-token=BPYeRbTdgfNUS8UTwr25LnTvDGeC1IGad38dfc72173ae2fe9f276e302b8d82c5j-spmTya4ly0RYkWbvVix7X3rcRJdiu6yXYSzN1tvyShuDvFDPgUFuzFJKbLfaMJoDPChoxul-2DswTdZ3Scxm9miJegQmvrv0vQhO_OJgfiVoeaVRVvlzUt53AQQf4z3PeiVf3-jKP3VzqI6qPZVoCL27zXjj0YUneDuPywGVI51so58yG6sxgei-oZBHytYqVox9rSyhmSAQ7eeYLa1Q&ci-process=originImage)
 
 ### 8.2 快速使用
 
