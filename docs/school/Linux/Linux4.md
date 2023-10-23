@@ -425,3 +425,78 @@ sz "要下载的文件"
 
 - 文件会自动下载到桌面的：fsdownload 文件夹中。
 - 注意，rz、sz 命令需要终端软件支持才可正常运行，`FinalShell`、`SecureCRT`、`XShell`等常用终端软件均支持此操作
+
+## 第十部分：压缩与解压
+
+### 10.1 压缩格式简介
+
+- zip 格式：Linux、Windows、MacOS，常用
+- 7zip：Windows 系统常用
+- rar：Windows 系统常用
+- tar：Linux、MacOS 常用
+- gzip：Linux、MacOS 常用
+  在 Windows 系统中常用的软件如：winrar、bandizip 等软件，都支持各类常见的压缩格式
+  在 Linux 系统中需要掌握操作：`tar`、`gzip`、`zip`这三种压缩格式及完成文件的压缩、解压操作。
+
+:::info
+Linux 和 Mac 系统常用有 2 种压缩格式，后缀名分别是：
+
+- .tar，称之为 tarball，归档文件，即简单的将文件组装到一个.tar 的文件内，并没有太多文件体积的减少，仅仅是简单的封装
+- .gz，也常见为.tar.gz，gzip 格式压缩文件，即使用 gzip 压缩算法将文件压缩到一个文件内，可以极大的减少压缩后的体积
+
+:::
+
+### 10.2 tar 命令
+
+```shell
+tar -c -v -× -f  -z -C 参数1 参数2..．参数N
+
+#tar压缩的常用组合为：
+tar -cvf test.tar 1.txt 2.txt 3.txt       #将1.txt 2.txt 3.txt 压缩到test.tar文件内
+tar -zcvf test.tar.gz 1.txt 2.txt 3.txt   #将1.txt 2.txt 3.txt 压缩到test.tar.gz文件内，使用gzip模式
+
+#tar解压的常用组合为：
+tar -xvf test.tar                              #解压test.tar，将文件解压至当前目录
+tar -xvf test.tar -C /home/itheima             #解压test.tar，将文件解压至指定目录（/home/itheima）
+tar -zxvf test.tar.gz -C /home/itheima         #以Gzip模式解压test.tar.gz，将文件解压至指定目录（/home/itheima）
+```
+
+- -c，创建压缩文件，用于压缩模式
+- -v，显示压缩、解压过程，用于查看进度
+- -x，解压模式
+- -f，要创建的文件，或要解压的文件，-f 选项必须在所有选项中位置处于最后一个
+- -z，gzip 模式，不使用-z 就是普通的 tarball 格式
+- -C，选择解压的目的地，用于解压模式
+
+- -z 选项如果使用的话，一般处于选项位第一个
+- -f 选项，必须在选项位最后一个,后面直接接要创建的文件名
+- -C 选项需要单独使用，和解压所需的其它参数分开
+
+### 10.3 zip 压缩
+
+可以使用`zip`命令，压缩文件为 zip 压缩包
+
+```shell
+zip -r 参数1 参数2.．参数N
+
+
+zip test.zip a.txt b.txt c.txt        #将a.txt b.txt c.txt 压缩到test.zip文件内
+zip -r test.zip test itheima a.txt    #将test、itheima两个文件夹和a.txt文件，压缩到test.zip文件内
+```
+
+- -r，被压缩的包含文件夹的时候，需要使用-r 选项，和 rm、cp 等命令
+  的-r 效果一致
+
+### 10.4 unzip 解压
+
+使用`unzip`命令，可以方便的解压 zip 压缩包
+
+```shell
+unzip［-d]］参数
+
+
+unzip test.zip                      #将test.zip解压到当前目录
+unzip test.zip -d /home/itheima     #将test.zip解压到指定文件夹内（/home/itheima）
+```
+
+- -d，指定要解压去的位置，同 tar 的-C 选项
