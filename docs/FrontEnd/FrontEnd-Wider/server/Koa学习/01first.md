@@ -101,10 +101,6 @@ app.listen(7005,()=>{
 
 
 
-### 3.3 异步小案例
-
-
-
 ```js
 const { default: axios } = require("axios");
 const Koa=require("koa");
